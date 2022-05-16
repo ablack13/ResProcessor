@@ -15,6 +15,7 @@ class ImageResProcessor(
         FileSpec.builder(packageName, className)
             .addType(
                 TypeSpec.enumBuilder(className)
+                    .addKdoc(Constants.attentionBeforeUsageText)
                     .addProperty(
                         PropertySpec.builder(name = keyArg, type = String::class)
                             .initializer(keyArg)
