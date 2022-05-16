@@ -14,9 +14,7 @@ class ImageResProcessor(
     override fun exec(data: List<Line>, directory: File) {
         FileSpec.builder(packageName, className)
             .addType(
-                TypeSpec.classBuilder(className)
-                    .addKdoc(Constants.attentionBeforeUsageText)
-                    .addModifiers(KModifier.SEALED)
+                TypeSpec.enumBuilder(className)
                     .addProperty(
                         PropertySpec.builder(name = keyArg, type = String::class)
                             .initializer(keyArg)
@@ -46,10 +44,10 @@ class ImageResProcessor(
     private fun TypeSpec.Builder.handleImageLine(line: ImageLine) {
         val key = prepareKey(line = line)
 
-        addType(
-            TypeSpec.objectBuilder(formInnerClassName(key = key))
-                .superclass(ClassName(packageName, className))
-                .addSuperclassConstructorParameter("$keyArg = %S", line.name)
+        addEnumConstant(
+            name = key,
+            typeSpec = TypeSpec.anonymousClassBuilder()
+                .addSuperclassConstructorParameter("%S", line.name)
                 .build()
         )
     }
