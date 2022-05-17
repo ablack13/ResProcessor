@@ -39,6 +39,10 @@ tasks.register("buildResProcessor") {
             darwinLocalizableSourceFileName = "source_localizable.strings"
             darwinExport = true
 
+            generatedReportPath = "$buildDir/"
+            generatedReportFileName = "report.xlsx"
+            reportExport = true
+
             generatedResClassesPath = generatedResFilesPath
             generatedResClassesPackage = generatedResPackage
         }

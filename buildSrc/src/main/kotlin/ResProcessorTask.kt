@@ -16,6 +16,10 @@ class ResProcessorTask {
     lateinit var generatedResClassesPath: String
     lateinit var generatedResClassesPackage: String
 
+    lateinit var generatedReportPath: String
+    lateinit var generatedReportFileName: String
+    var reportExport: Boolean = false
+
     var generatedTextResFileName: String = "TextRes"
     var generatedImageResFileName: String = "ImageRes"
 
@@ -34,6 +38,12 @@ class ResProcessorTask {
                 data = data,
                 directory = File(generatedResClassesPath)
             )
+            if (reportExport)
+                ReportDataExporter().process(
+                    input = data,
+                    path = generatedReportPath,
+                    fileName = generatedReportFileName
+                )
             if (darwinExport)
                 DarwinDataExporter().process(
                     input = data,

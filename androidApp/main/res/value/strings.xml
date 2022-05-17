@@ -47,6 +47,7 @@
     </string>
     <string name="tabs_1_tab_1">tab1</string>
     <string name="tabs_1_tab_2">tab2</string>
+    <!--@added -->
     <string name="tabs_1_tab_3">tab3</string>
     <string name="activity_hello_world">App/Activity/
         <b>Hello
@@ -58,6 +59,7 @@
             <i>World!</i>
         </b>
     </string>
+    <!-- @add new line   -->
     <string name="activity_dialog">App/Activity/Dialog</string>
     <string name="dialog_activity_text">Example of how you can use the
         Theme.Dialog theme to make an activity that looks like a
@@ -82,6 +84,7 @@
         orientation modes. Often you want to set the desired mode in your manifest
         instead of programmatically.
     </string>
+    <!--    @delete screen_orientation-->
     <string name="screen_orientation">Screen Orientation</string>
     <string name="activity_picture_in_picture">App/Activity/Picture in Picture</string>
     <string name="activity_picture_in_picture_auto_enter">App/Activity/Picture in Picture Auto Enter</string>
@@ -104,6 +107,7 @@
         activity have a translucent background, compositing over
         whatever is behind it.
     </string>
+    <!--    @update activity_translucent_blur activity_translucent_blue Demonstration of saving and restoring activity state in onSaveInstanceState(). Rock is dead-->
     <string name="activity_translucent_blur">App/Activity/Translucent Blur</string>
     <string name="activity_animation">App/Activity/Animation</string>
     <string name="activity_animation_msg">Press a button to launch an activity with a custom animation.</string>
