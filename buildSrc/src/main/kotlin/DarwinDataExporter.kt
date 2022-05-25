@@ -5,7 +5,7 @@ class DarwinDataExporter {
         val dst = File(path, fileName)
         if (!dst.exists())
             dst.createNewFile()
-        dst.writeText("//" + Constants.attentionBeforeUsageText)
+        dst.writeText("//" + Constants.attentionBeforeUsageText+"\n")
         input.forEach {
             when (it) {
                 is CommentLine -> dst.appendText("\n//${it.comment}\n")
