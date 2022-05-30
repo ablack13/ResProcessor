@@ -6,7 +6,7 @@ class ResProcessorTask {
     var textResGenerate: Boolean = true
 
     lateinit var androidDrawablesPath: String
-    lateinit var androidDrawablePrefixFilter: String
+    lateinit var androidDrawablePrefixFilter: List<String>
     var imageResGenerate: Boolean = true
 
     lateinit var darwinLocalizationFolderPath: String
@@ -52,16 +52,17 @@ class ResProcessorTask {
                 )
         }
         if (imageResGenerate) {
+            val prefixFilter = androidDrawablePrefixFilter.sortedDescending()
             val data = DrawableNamesListReader()
                 .readFileNamesToList(
                     path = androidDrawablesPath,
-                    prefix = androidDrawablePrefixFilter
+                    prefix = prefixFilter
                 )
             val mData = ImageParser().parse(data = data)
             ImageResProcessor(
                 packageName = generatedResClassesPackage,
                 className = generatedImageResFileName,
-                imagePrefix = androidDrawablePrefixFilter
+                imagePrefix = prefixFilter
             ).exec(
                 data = mData,
                 directory = File(generatedResClassesPath)

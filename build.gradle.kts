@@ -33,7 +33,7 @@ tasks.register("buildResProcessor") {
         .apply {
             androidStringsXmlPath = "$projectDir/androidApp/main/res/value/"
             androidDrawablesPath = "$projectDir/androidApp/main/res/drawable"
-            androidDrawablePrefixFilter= "kmm_ic_"
+            androidDrawablePrefixFilter = listOf("kmm_", "kmm_ic_")
 
             darwinLocalizationFolderPath = "$projectDir/iosApp/resources/localization"
             darwinLocalizableSourceFileName = "source_localizable.strings"

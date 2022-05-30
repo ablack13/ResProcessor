@@ -4,7 +4,7 @@ import java.io.File
 class ImageResProcessor(
     override val packageName: String,
     override val className: String,
-    private val imagePrefix: String
+    private val imagePrefix: List<String>
 ) : ResProcessor<Line> {
 
     companion object {
@@ -62,9 +62,15 @@ class ImageResProcessor(
         else
             "Img"
 
-    private fun formInnerClassName(key: String) =
-        key.removePrefix(imagePrefix)
-            .splitToSequence("_")
-            .map { it.capitalize() }
-            .joinToString("")
+    private fun formInnerClassName(key: String): String {
+        var name: String? = null
+        imagePrefix.forEach {
+                if (name == null && key.startsWith(it))
+                    name = key.removePrefix(it)
+                        .splitToSequence("_")
+                        .map { it.capitalize() }
+                        .joinToString("")
+            }
+        return name ?: throw NullPointerException("Not found registered prefix for key->$key")
+    }
 }
