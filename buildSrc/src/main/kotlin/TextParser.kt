@@ -1,6 +1,6 @@
 class TextParser {
     private val stringResRegex =
-        "(<string\\s+name=\")(?<key>[\\w]+)(\">)(?<value>[\\w\\s.,:\\-\\%s!\\\'(?:)?:\\/|\\\\]*)(<\\/string>)".toRegex()
+        "(<string\\s+name=\")(?<key>[\\w]+)(\">)(?<value>[\\w\\s.,:\\-\\%s!&;<>#\"\'\\\'(?:)?:\\/|\\\\]*)(<\\/string>)".toRegex()
     private val commentRegex =
         "(<!--)(?<comment>[\\w\\s.,:\\-\\%s!@\\'(?:)?:\\/|]*)(-->)+".toRegex()
     private val addedCommentRegex = "[\\s]*(@a[\\w]*)(?<value>[\\w\\s.,:\\-\\%s!\\'(?:)?:\\/|\\\\]*)".toRegex()

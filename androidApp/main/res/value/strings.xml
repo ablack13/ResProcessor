@@ -11,6 +11,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="rock_is_dead">Rock &amp; Dead</string>
     <string name="activity_sample_code">API Demos</string>
     <!-- =============================== -->
     <!--  app/activity examples strings  -->
